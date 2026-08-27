@@ -5,30 +5,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Home" description="Industrial Engineer & Business Analyst based in Istanbul — Ömer Faruk Doğan">
 
   <!-- Hero -->
-  <section class="py-16 border-b border-neutral-100">
+  <section class="py-16 border-b border-neutral-100 dark:border-neutral-800">
     <div class="flex flex-col gap-6 max-w-2xl">
       <!-- Status badge -->
       <div class="inline-flex items-center gap-2 w-fit">
         <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-neutral-900"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 dark:bg-neutral-600 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-neutral-900 dark:bg-white"></span>
         </span>
-        <span class="text-xs font-mono text-neutral-500">Available for opportunities</span>
+        <span class="text-xs font-mono text-neutral-500 dark:text-neutral-450">Available for opportunities</span>
       </div>
 
       <div>
-        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 leading-tight">
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white leading-tight">
           Ömer Faruk<br />Doğan
         </h1>
-        <p class="mt-3 text-lg text-neutral-500 font-medium">
+        <p class="mt-3 text-lg text-neutral-500 dark:text-neutral-400 font-medium">
           Industrial Engineer & Business Analyst
         </p>
-        <p class="mt-1 text-sm text-neutral-400">
+        <p class="mt-1 text-sm text-neutral-400 dark:text-neutral-500">
           Pendik, İstanbul · omerfarukdoganweb@gmail.com
         </p>
       </div>
 
-      <p class="text-neutral-600 leading-relaxed text-base max-w-xl">
+      <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base max-w-xl">
         Industrial Engineering professional and active Business Analyst dedicated to bridging the gap
         between complex technical architectures and strategic business objectives. Combining a robust
         IT background with deep expertise in process optimization, I specialize in translating
@@ -39,7 +39,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="flex flex-wrap gap-3 pt-2">
         <a
           href="/cv"
-          class="inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 text-white text-sm font-medium rounded-lg hover:bg-neutral-700 transition-colors"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-sm font-medium rounded-lg hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors"
         >
           View CV
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </a>
         <a
           href="mailto:omerfarukdoganweb@gmail.com"
-          class="inline-flex items-center gap-2 px-4 py-2 border border-neutral-300 text-neutral-700 text-sm font-medium rounded-lg hover:bg-neutral-50 transition-colors"
+          class="inline-flex items-center gap-2 px-4 py-2 border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors"
         >
           Get in touch
         </a>
@@ -60,7 +60,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           href="https://github.com/omerfarukdogan"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+          class="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-450 hover:text-neutral-900 dark:hover:text-white transition-colors"
           aria-label="GitHub"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           href="https://linkedin.com/in/omerfarukdogan"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+          class="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-450 hover:text-neutral-900 dark:hover:text-white transition-colors"
           aria-label="LinkedIn"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           href="https://x.com/omerfarukdogan"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+          class="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-450 hover:text-neutral-900 dark:hover:text-white transition-colors"
           aria-label="X"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -97,34 +97,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Quick Stats / Highlights -->
-  <section class="py-12 border-b border-neutral-100">
-    <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Highlights</h2>
+  <section class="py-12 border-b border-neutral-100 dark:border-neutral-800">
+    <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Highlights</h2>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-      <div class="p-5 border border-neutral-200 rounded-xl hover:border-neutral-400 transition-colors">
-        <p class="text-2xl font-bold text-neutral-900">10+</p>
-        <p class="text-sm text-neutral-500 mt-1">Years of hands-on experience across software, e-commerce & industrial engineering</p>
+      <div class="p-5 border border-neutral-200 dark:border-neutral-800 rounded-xl hover:border-neutral-400 dark:hover:border-neutral-600 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+        <p class="text-2xl font-bold text-neutral-900 dark:text-white">10+</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Years of hands-on experience across software, e-commerce & industrial engineering</p>
       </div>
-      <div class="p-5 border border-neutral-200 rounded-xl hover:border-neutral-400 transition-colors">
-        <p class="text-2xl font-bold text-neutral-900">TÜBİTAK</p>
-        <p class="text-sm text-neutral-500 mt-1">1812 BİGG acceptance for GlicoGo — a data-driven health-tech startup</p>
+      <div class="p-5 border border-neutral-200 dark:border-neutral-800 rounded-xl hover:border-neutral-400 dark:hover:border-neutral-600 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+        <p class="text-2xl font-bold text-neutral-900 dark:text-white">TÜBİTAK</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">1812 BİGG acceptance for GlicoGo — a data-driven health-tech startup</p>
       </div>
-      <div class="p-5 border border-neutral-200 rounded-xl hover:border-neutral-400 transition-colors">
-        <p class="text-2xl font-bold text-neutral-900">#1</p>
-        <p class="text-sm text-neutral-500 mt-1">T3 Vakfı SİNAPS Girişimcilik Programme — 1st place</p>
+      <div class="p-5 border border-neutral-200 dark:border-neutral-800 rounded-xl hover:border-neutral-400 dark:hover:border-neutral-600 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+        <p class="text-2xl font-bold text-neutral-900 dark:text-white">#1</p>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">T3 Vakfı SİNAPS Girişimcilik Programme — 1st place</p>
       </div>
     </div>
   </section>
 
   <!-- Skills snapshot -->
-  <section class="py-12 border-b border-neutral-100">
-    <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Core Skills</h2>
+  <section class="py-12 border-b border-neutral-100 dark:border-neutral-800">
+    <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Core Skills</h2>
     <div class="flex flex-wrap gap-2">
       {[
         'Deep Learning', 'Analytics', 'English', 'TypeScript',
         'React Native', 'Python', 'Sistem Dinamikleri', 'SQL',
         'Agile / Scrum', 'Process Optimization', 'BRD / FRD', 'MRP',
       ].map((skill) => (
-        <span class="px-3 py-1.5 text-sm font-medium bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-200 transition-colors">
+        <span class="px-3 py-1.5 text-sm font-medium bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-850 transition-colors">
           {skill}
         </span>
       ))}
@@ -133,7 +133,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- Recent -->
   <section class="py-12">
-    <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Certificates & Awards</h2>
+    <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Certificates & Awards</h2>
     <ul class="space-y-3">
       {[
         { label: 'Fundamentals of Digital Marketing', issuer: 'Google' },
@@ -143,10 +143,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         { label: 'Programming Certificates (SQL, Python, JavaScript, Java)', issuer: 'Various' },
       ].map((cert) => (
         <li class="flex items-start gap-3 text-sm">
-          <span class="text-neutral-300 mt-0.5">▸</span>
+          <span class="text-neutral-300 dark:text-neutral-700 mt-0.5">▸</span>
           <span>
-            <span class="font-medium text-neutral-800">{cert.label}</span>
-            <span class="text-neutral-400 ml-2">· {cert.issuer}</span>
+            <span class="font-medium text-neutral-800 dark:text-neutral-200">{cert.label}</span>
+            <span class="text-neutral-400 dark:text-neutral-500 ml-2">· {cert.issuer}</span>
           </span>
         </li>
       ))}

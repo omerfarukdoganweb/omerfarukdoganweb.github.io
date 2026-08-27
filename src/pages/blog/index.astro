@@ -16,10 +16,10 @@ function formatDate(date: Date): string {
 ---
 
 <BaseLayout title="Blog" description="Articles and thoughts by Ömer Faruk Doğan">
-  <div class="pb-10 border-b border-neutral-100 mb-12">
-    <p class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4">Writing</p>
-    <h1 class="text-4xl font-bold tracking-tight text-neutral-900">Blog</h1>
-    <p class="text-neutral-500 mt-3 max-w-lg">
+  <div class="pb-10 border-b border-neutral-100 dark:border-neutral-800 mb-12">
+    <p class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-4">Writing</p>
+    <h1 class="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">Blog</h1>
+    <p class="text-neutral-500 dark:text-neutral-400 mt-3 max-w-lg">
       Thoughts on industrial engineering, technology, entrepreneurship, and whatever I am learning.
     </p>
   </div>
@@ -29,22 +29,22 @@ function formatDate(date: Date): string {
       <p class="text-neutral-400 text-sm">No posts yet. Coming soon!</p>
     </div>
   ) : (
-    <ul class="divide-y divide-neutral-100">
+    <ul class="divide-y divide-neutral-100 dark:divide-neutral-800">
       {allPosts.map((post) => (
         <li>
           <a
             href={`/blog/${post.slug}`}
-            class="group flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 py-5 hover:bg-neutral-50 -mx-4 px-4 rounded-lg transition-colors"
+            class="group flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 py-5 hover:bg-neutral-50 dark:hover:bg-neutral-900 -mx-4 px-4 rounded-lg transition-colors"
           >
             <div>
-              <h2 class="font-medium text-neutral-900 group-hover:underline underline-offset-2">
+              <h2 class="font-medium text-neutral-900 dark:text-white group-hover:underline underline-offset-2">
                 {post.data.title}
               </h2>
-              <p class="text-sm text-neutral-500 mt-0.5 line-clamp-1">{post.data.description}</p>
+              <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-0.5 line-clamp-1">{post.data.description}</p>
             </div>
             <time
               datetime={post.data.pubDate.toISOString()}
-              class="text-xs font-mono text-neutral-400 shrink-0"
+              class="text-xs font-mono text-neutral-400 dark:text-neutral-500 shrink-0"
             >
               {formatDate(post.data.pubDate)}
             </time>

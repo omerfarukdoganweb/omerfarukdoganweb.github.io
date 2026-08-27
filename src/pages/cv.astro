@@ -152,22 +152,39 @@ const certifications = [
 <BaseLayout title="CV" description="Curriculum Vitae of Ömer Faruk Doğan — Industrial Engineer & Business Analyst">
 
   <!-- Header -->
-  <div class="pb-10 border-b border-neutral-100 mb-12">
-    <p class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4">Curriculum Vitae</p>
-    <h1 class="text-4xl font-bold tracking-tight text-neutral-900">Ömer Faruk Doğan</h1>
-    <p class="text-lg text-neutral-500 mt-2 font-medium">Industrial Engineer & Business Analyst</p>
-    <div class="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-sm text-neutral-500">
-      <a href="mailto:omerfarukdoganweb@gmail.com" class="hover:text-neutral-900 transition-colors">
+  <div class="pb-10 border-b border-neutral-100 dark:border-neutral-800 mb-12">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+      <div>
+        <p class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-4">Curriculum Vitae</p>
+        <h1 class="text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">Ömer Faruk Doğan</h1>
+        <p class="text-lg text-neutral-500 dark:text-neutral-400 mt-2 font-medium">Industrial Engineer & Business Analyst</p>
+      </div>
+      
+      <!-- PDF Download Button -->
+      <a
+        href="/Profile.pdf"
+        download
+        class="inline-flex items-center gap-2 px-4 py-2.5 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-sm font-medium rounded-lg hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm self-start"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        📄 Download CV (PDF)
+      </a>
+    </div>
+
+    <div class="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+      <a href="mailto:omerfarukdoganweb@gmail.com" class="hover:text-neutral-900 dark:hover:text-white transition-colors">
         omerfarukdoganweb@gmail.com
       </a>
       <span>Pendik, İstanbul</span>
-      <a href="https://github.com/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">GitHub</a>
-      <a href="https://linkedin.com/in/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">LinkedIn</a>
-      <a href="https://x.com/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">X</a>
+      <a href="https://github.com/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 dark:hover:text-white transition-colors">GitHub</a>
+      <a href="https://linkedin.com/in/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 dark:hover:text-white transition-colors">LinkedIn</a>
+      <a href="https://x.com/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 dark:hover:text-white transition-colors">X</a>
     </div>
 
     <!-- Summary -->
-    <p class="mt-6 text-neutral-600 leading-relaxed max-w-2xl text-sm">
+    <p class="mt-6 text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-2xl text-sm">
       Industrial Engineering professional and active Business Analyst dedicated to bridging the gap
       between complex technical architectures and strategic business objectives. Combining a robust
       IT background with deep expertise in process optimization, I specialize in translating
@@ -179,7 +196,7 @@ const certifications = [
 
     <!-- Experience Timeline -->
     <section>
-      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Experience</h2>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Experience</h2>
       <div>
         {experiences.map((exp, i) => (
           <ExperienceItem
@@ -197,7 +214,7 @@ const certifications = [
 
     <!-- Education Timeline -->
     <section>
-      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Education</h2>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Education</h2>
       <div>
         {education.map((edu, i) => (
           <ExperienceItem
@@ -215,14 +232,14 @@ const certifications = [
 
     <!-- Skills -->
     <section>
-      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Skills</h2>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Skills</h2>
       <div class="space-y-5">
         {skills.map((group) => (
-          <div class="flex gap-6">
-            <p class="text-sm font-medium text-neutral-700 w-48 shrink-0 pt-0.5">{group.category}</p>
+          <div class="flex flex-col sm:flex-row gap-2 sm:gap-6">
+            <p class="text-sm font-medium text-neutral-700 dark:text-neutral-350 w-48 shrink-0 pt-0.5">{group.category}</p>
             <div class="flex flex-wrap gap-2">
               {group.items.map((item) => (
-                <span class="px-2.5 py-1 text-xs font-medium bg-neutral-100 text-neutral-700 rounded-md">
+                <span class="px-2.5 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 rounded-md">
                   {item}
                 </span>
               ))}
@@ -234,14 +251,14 @@ const certifications = [
 
     <!-- Certifications -->
     <section>
-      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Certifications</h2>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Certifications</h2>
       <ul class="space-y-3">
         {certifications.map((cert) => (
           <li class="flex items-start gap-3 text-sm">
-            <span class="text-neutral-300 mt-0.5 shrink-0">▸</span>
+            <span class="text-neutral-300 dark:text-neutral-750 mt-0.5 shrink-0">▸</span>
             <span>
-              <span class="font-medium text-neutral-800">{cert.name}</span>
-              {cert.issuer && <span class="text-neutral-400 ml-2">· {cert.issuer}</span>}
+              <span class="font-medium text-neutral-800 dark:text-neutral-200">{cert.name}</span>
+              {cert.issuer && <span class="text-neutral-400 dark:text-neutral-500 ml-2">· {cert.issuer}</span>}
             </span>
           </li>
         ))}
@@ -250,28 +267,28 @@ const certifications = [
 
     <!-- Achievements -->
     <section>
-      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Achievements</h2>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Achievements</h2>
       <div class="space-y-4">
-        <div class="p-5 border border-neutral-200 rounded-xl">
+        <div class="p-5 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-white dark:bg-neutral-900/50 hover:border-neutral-400 dark:hover:border-neutral-600 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
           <div class="flex items-start justify-between gap-4">
             <div>
-              <p class="font-semibold text-neutral-900">GlicoGo</p>
-              <p class="text-sm text-neutral-600 mt-1">
+              <p class="font-semibold text-neutral-900 dark:text-white">GlicoGo</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
                 Health-tech startup accepted into the TÜBİTAK 1812 BİGG (Bireysel Girişim) programme — one of Turkey's most competitive early-stage innovation grants.
               </p>
             </div>
-            <span class="shrink-0 text-xs font-mono bg-neutral-100 text-neutral-600 px-2 py-1 rounded">TÜBİTAK</span>
+            <span class="shrink-0 text-xs font-mono bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-1 rounded">TÜBİTAK</span>
           </div>
         </div>
-        <div class="p-5 border border-neutral-200 rounded-xl">
+        <div class="p-5 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-white dark:bg-neutral-900/50 hover:border-neutral-400 dark:hover:border-neutral-600 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
           <div class="flex items-start justify-between gap-4">
             <div>
-              <p class="font-semibold text-neutral-900">T3 Vakfı SİNAPS — 1st Place</p>
-              <p class="text-sm text-neutral-600 mt-1">
+              <p class="font-semibold text-neutral-900 dark:text-white">T3 Vakfı SİNAPS — 1st Place</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
                 First place at the T3 Foundation SİNAPS Entrepreneurship Programme, recognizing innovation and technical excellence.
               </p>
             </div>
-            <span class="shrink-0 text-xs font-mono bg-neutral-100 text-neutral-600 px-2 py-1 rounded">T3 Vakfı</span>
+            <span class="shrink-0 text-xs font-mono bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-1 rounded">T3 Vakfı</span>
           </div>
         </div>
       </div>

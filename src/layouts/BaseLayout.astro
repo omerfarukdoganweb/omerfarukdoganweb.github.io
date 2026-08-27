@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 interface Props {
   title: string;
@@ -13,7 +15,7 @@ const {
   ogImage = '/og-default.png',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://omerfarukdogan.com.tr');
 ---
 
 <!doctype html>
@@ -24,17 +26,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Inline Script to prevent Theme Flash -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('color-theme')) {
+          return localStorage.getItem('color-theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+    
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+
     <!-- SEO -->
     <title>{title} — Ömer Faruk Doğan</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={`${title} — Ömer Faruk Doğan`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site || 'https://omerfarukdogan.com.tr')} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={`${title} — Ömer Faruk Doğan`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site || 'https://omerfarukdogan.com.tr')} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,21 +71,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Astro View Transitions -->
+    <ViewTransitions />
   </head>
 
-  <body class="bg-white text-neutral-900 antialiased min-h-screen flex flex-col">
+  <body class="bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 antialiased min-h-screen flex flex-col transition-colors duration-300">
     <!-- Navbar -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-neutral-200">
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-neutral-955/90 backdrop-blur border-b border-neutral-200 dark:border-neutral-800 transition-colors">
       <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" class="font-semibold text-neutral-900 tracking-tight hover:opacity-70 transition-opacity">
+        <a href="/" class="font-semibold text-neutral-900 dark:text-white tracking-tight hover:opacity-70 transition-opacity">
           öfd<span class="text-neutral-400">.</span>
         </a>
-        <ul class="flex items-center gap-6 text-sm font-medium text-neutral-600">
-          <li><a href="/" class="hover:text-neutral-900 transition-colors">Home</a></li>
-          <li><a href="/cv" class="hover:text-neutral-900 transition-colors">CV</a></li>
-          <li><a href="/projeler" class="hover:text-neutral-900 transition-colors">Projects</a></li>
-          <li><a href="/blog" class="hover:text-neutral-900 transition-colors">Blog</a></li>
-        </ul>
+        <div class="flex items-center gap-6">
+          <ul class="flex items-center gap-6 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+            <li><a href="/" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Home</a></li>
+            <li><a href="/cv" class="hover:text-neutral-900 dark:hover:text-white transition-colors">CV</a></li>
+            <li><a href="/projeler" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Projects</a></li>
+            <li><a href="/blog" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Blog</a></li>
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
 
@@ -67,15 +101,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-neutral-200 mt-auto">
-      <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500">
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 mt-auto transition-colors">
+      <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-500 dark:text-neutral-400">
         <p>© {new Date().getFullYear()} Ömer Faruk Doğan. All rights reserved.</p>
         <div class="flex items-center gap-4">
           <a
             href="https://github.com/omerfarukdogan"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-neutral-900 transition-colors"
+            class="hover:text-neutral-900 dark:hover:text-white transition-colors"
             aria-label="GitHub"
           >
             <!-- GitHub Icon -->
@@ -87,7 +121,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             href="https://linkedin.com/in/omerfarukdogan"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-neutral-900 transition-colors"
+            class="hover:text-neutral-900 dark:hover:text-white transition-colors"
             aria-label="LinkedIn"
           >
             <!-- LinkedIn Icon -->
@@ -99,7 +133,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             href="https://x.com/omerfarukdogan"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-neutral-900 transition-colors"
+            class="hover:text-neutral-900 dark:hover:text-white transition-colors"
             aria-label="X (Twitter)"
           >
             <!-- X Icon -->
