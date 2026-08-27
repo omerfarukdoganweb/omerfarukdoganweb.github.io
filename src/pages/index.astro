@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialFeed from '../components/SocialFeed.astro';
 ---
 
 <BaseLayout title="Home" description="Industrial Engineer & Business Analyst based in Istanbul — Ömer Faruk Doğan">
@@ -131,7 +132,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Recent -->
+  <!-- Social Feed Section -->
+  <section class="py-12 border-b border-neutral-100 dark:border-neutral-800">
+    <SocialFeed />
+  </section>
+
+  <!-- Recent Certificates -->
   <section class="py-12">
     <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-8">Certificates & Awards</h2>
     <ul class="space-y-3">

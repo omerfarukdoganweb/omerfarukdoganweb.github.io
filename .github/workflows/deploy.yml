@@ -1,25 +1,24 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Main branch'e her push yapıldığında çalıştır
   push:
     branches: [ main ]
-  # GitHub arayüzünden manuel tetikleme imkanı verir
+  schedule:
+    # Her gün gece 03:00'te otomatik çalıştır (UTC)
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
-# Gerekli izinleri ayarla
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Aynı anda sadece bir deploy çalışmasını sağla
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 env:
-  BUILD_PATH: "." # Proje kök dizini
+  BUILD_PATH: "."
 
 jobs:
   build:
@@ -56,6 +55,16 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+
+      # Build adımından hemen önce sosyal medya verilerini çek
+      - name: Fetch Social Media Feed
+        run: node scripts/fetch-social.mjs
+        working-directory: ${{ env.BUILD_PATH }}
+        env:
+          # GitHub Secrets üzerinden gerçek API linklerinizi tanımlayabilirsiniz.
+          # Eğer tanımlanmazsa script içindeki fallback API linkleri çalışacaktır.
+          X_FEED_API: ${{ secrets.X_FEED_API }}
+          LINKEDIN_FEED_API: ${{ secrets.LINKEDIN_FEED_API }}
 
       - name: Build with Astro
         run: |
