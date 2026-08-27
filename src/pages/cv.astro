@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+
+const experiences = [
+  {
+    title: 'Planning Intern',
+    company: 'NETA Elektronik A.Ş.',
+    period: 'Aug 2026 – Present',
+    type: 'Internship · On-site',
+    location: 'İstanbul, Türkiye',
+    description: [
+      'Supporting end-to-end production planning and capacity analysis.',
+      'Managing MRP (Material Requirements Planning) processes.',
+    ],
+  },
+  {
+    title: 'Business Analyst Intern',
+    company: 'RDC Partner',
+    period: 'Jul 2026 – Aug 2026',
+    type: 'Internship',
+    location: 'İstanbul, Türkiye',
+    description: [
+      'Requirements analysis using Agile/Scrum frameworks.',
+      'Preparing Business Requirements Documents (BRD) and Functional Requirements Documents (FRD).',
+    ],
+  },
+  {
+    title: 'Founder',
+    company: 'Sintio E-Commerce & IT Consulting',
+    period: 'Mar 2023 – Present',
+    type: 'Self-employed',
+    location: 'İstanbul, Türkiye',
+    description: [
+      'Designing scalable IT strategies and digital transformation roadmaps for SMEs.',
+      'Delivering end-to-end e-commerce solutions across multiple platforms.',
+    ],
+  },
+  {
+    title: 'Graphic Designer',
+    company: 'Medipol University Operations Research Society',
+    period: 'Oct 2024 – Present',
+    type: 'Part-time · Volunteer',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Board Member',
+    company: 'Teknofest Kulübü',
+    period: 'Oct 2024 – Jun 2026',
+    type: 'Volunteer',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Summer Intern',
+    company: 'FLO Group',
+    period: 'Aug 2025 – Sep 2025',
+    type: 'Internship',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Project Management Intern',
+    company: 'Sca Social',
+    period: 'Jul 2025 – Aug 2025',
+    type: 'Internship',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Digital Solutions Specialist',
+    company: 'Pigleb Digital Solutions',
+    period: 'Dec 2021 – Jan 2023',
+    type: 'Full-time',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Chairman of Computer Society',
+    company: 'IEEE İstanbul Gedik University',
+    period: 'Dec 2019 – Jul 2021',
+    type: 'Volunteer',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Software Developer',
+    company: 'Grapware Digital',
+    period: 'Jun 2019 – Jun 2020',
+    type: 'Full-time',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+];
+
+const education = [
+  {
+    title: 'Industrial Engineering (B.Sc.)',
+    company: 'Medipol University',
+    period: 'Sep 2022 – Jul 2027',
+    type: 'Undergraduate',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Global Summer School',
+    company: 'Humber College',
+    period: '2021',
+    type: 'Exchange Programme',
+    location: 'Ontario, Canada',
+    description: [],
+  },
+  {
+    title: 'Computer Programming (A.Sc.)',
+    company: 'İstanbul Gedik University',
+    period: '2019 – 2021',
+    type: 'Associate Degree',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+  {
+    title: 'Information Technology',
+    company: 'Yakacık Mesleki ve Teknik Anadolu Lisesi',
+    period: '2015 – 2019',
+    type: 'High School',
+    location: 'İstanbul, Türkiye',
+    description: [],
+  },
+];
+
+const skills = [
+  { category: 'Engineering & Analysis', items: ['Process Optimization', 'Capacity Analysis', 'MRP', 'System Dynamics', 'BRD / FRD'] },
+  { category: 'Development', items: ['TypeScript', 'Python', 'SQL', 'React Native', 'JavaScript', 'Java'] },
+  { category: 'Data & AI', items: ['Deep Learning', 'Analytics', 'Data Visualization'] },
+  { category: 'Methodology', items: ['Agile / Scrum', 'Digital Transformation', 'IT Strategy'] },
+  { category: 'Languages', items: ['Turkish (Native)', 'English (Professional)'] },
+];
+
+const certifications = [
+  { name: 'Fundamentals of Digital Marketing', issuer: 'Google', year: '' },
+  { name: 'Mobile Experience Certification', issuer: 'Google', year: '' },
+  { name: 'Derin Öğrenmeye Giriş Bootcamp', issuer: 'Akbank', year: '' },
+  { name: 'Yeşil Gelecek: Enerji Dönüşümü ve Sürdürülebilirlik', issuer: '', year: '' },
+  { name: 'SQL Certificate', issuer: 'Various', year: '' },
+  { name: 'Python Certificate', issuer: 'Various', year: '' },
+  { name: 'JavaScript Certificate', issuer: 'Various', year: '' },
+  { name: 'Java Certificate', issuer: 'Various', year: '' },
+];
+---
+
+<BaseLayout title="CV" description="Curriculum Vitae of Ömer Faruk Doğan — Industrial Engineer & Business Analyst">
+
+  <!-- Header -->
+  <div class="pb-10 border-b border-neutral-100 mb-12">
+    <p class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4">Curriculum Vitae</p>
+    <h1 class="text-4xl font-bold tracking-tight text-neutral-900">Ömer Faruk Doğan</h1>
+    <p class="text-lg text-neutral-500 mt-2 font-medium">Industrial Engineer & Business Analyst</p>
+    <div class="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-sm text-neutral-500">
+      <a href="mailto:omerfarukdoganweb@gmail.com" class="hover:text-neutral-900 transition-colors">
+        omerfarukdoganweb@gmail.com
+      </a>
+      <span>Pendik, İstanbul</span>
+      <a href="https://github.com/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">GitHub</a>
+      <a href="https://linkedin.com/in/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">LinkedIn</a>
+      <a href="https://x.com/omerfarukdogan" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 transition-colors">X</a>
+    </div>
+
+    <!-- Summary -->
+    <p class="mt-6 text-neutral-600 leading-relaxed max-w-2xl text-sm">
+      Industrial Engineering professional and active Business Analyst dedicated to bridging the gap
+      between complex technical architectures and strategic business objectives. Combining a robust
+      IT background with deep expertise in process optimization, I specialize in translating
+      cross-functional requirements into scalable digital solutions within Agile/Scrum environments.
+    </p>
+  </div>
+
+  <div class="space-y-16">
+
+    <!-- Experience Timeline -->
+    <section>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Experience</h2>
+      <div>
+        {experiences.map((exp, i) => (
+          <ExperienceItem
+            title={exp.title}
+            company={exp.company}
+            period={exp.period}
+            location={exp.location}
+            type={exp.type}
+            description={exp.description}
+            isLast={i === experiences.length - 1}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Education Timeline -->
+    <section>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Education</h2>
+      <div>
+        {education.map((edu, i) => (
+          <ExperienceItem
+            title={edu.title}
+            company={edu.company}
+            period={edu.period}
+            location={edu.location}
+            type={edu.type}
+            description={edu.description}
+            isLast={i === education.length - 1}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Skills</h2>
+      <div class="space-y-5">
+        {skills.map((group) => (
+          <div class="flex gap-6">
+            <p class="text-sm font-medium text-neutral-700 w-48 shrink-0 pt-0.5">{group.category}</p>
+            <div class="flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span class="px-2.5 py-1 text-xs font-medium bg-neutral-100 text-neutral-700 rounded-md">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Certifications</h2>
+      <ul class="space-y-3">
+        {certifications.map((cert) => (
+          <li class="flex items-start gap-3 text-sm">
+            <span class="text-neutral-300 mt-0.5 shrink-0">▸</span>
+            <span>
+              <span class="font-medium text-neutral-800">{cert.name}</span>
+              {cert.issuer && <span class="text-neutral-400 ml-2">· {cert.issuer}</span>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Achievements -->
+    <section>
+      <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-8">Achievements</h2>
+      <div class="space-y-4">
+        <div class="p-5 border border-neutral-200 rounded-xl">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-semibold text-neutral-900">GlicoGo</p>
+              <p class="text-sm text-neutral-600 mt-1">
+                Health-tech startup accepted into the TÜBİTAK 1812 BİGG (Bireysel Girişim) programme — one of Turkey's most competitive early-stage innovation grants.
+              </p>
+            </div>
+            <span class="shrink-0 text-xs font-mono bg-neutral-100 text-neutral-600 px-2 py-1 rounded">TÜBİTAK</span>
+          </div>
+        </div>
+        <div class="p-5 border border-neutral-200 rounded-xl">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="font-semibold text-neutral-900">T3 Vakfı SİNAPS — 1st Place</p>
+              <p class="text-sm text-neutral-600 mt-1">
+                First place at the T3 Foundation SİNAPS Entrepreneurship Programme, recognizing innovation and technical excellence.
+              </p>
+            </div>
+            <span class="shrink-0 text-xs font-mono bg-neutral-100 text-neutral-600 px-2 py-1 rounded">T3 Vakfı</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

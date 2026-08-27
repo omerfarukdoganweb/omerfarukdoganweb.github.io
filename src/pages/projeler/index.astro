@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+const statusLabel: Record<string, string> = {
+  active: 'Active',
+  completed: 'Completed',
+  archived: 'Archived',
+};
+const statusStyle: Record<string, string> = {
+  active: 'bg-neutral-900 text-white',
+  completed: 'bg-neutral-100 text-neutral-600',
+  archived: 'bg-neutral-50 text-neutral-400',
+};
+---
+
+<BaseLayout title="Projects" description="Projects and side-works by Ömer Faruk Doğan">
+  <div class="pb-10 border-b border-neutral-100 mb-12">
+    <p class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4">Work</p>
+    <h1 class="text-4xl font-bold tracking-tight text-neutral-900">Projects</h1>
+    <p class="text-neutral-500 mt-3 max-w-lg">
+      A collection of side projects, startups, and experiments I have built or contributed to.
+    </p>
+  </div>
+
+  {projects.length === 0 ? (
+    <div class="py-20 text-center">
+      <p class="text-neutral-400 text-sm">No projects yet. Check back soon!</p>
+    </div>
+  ) : (
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      {projects.map((project) => (
+        <a
+          href={`/projeler/${project.slug}`}
+          class="group block p-6 border border-neutral-200 rounded-xl hover:border-neutral-400 transition-all hover:shadow-sm"
+        >
+          <div class="flex items-start justify-between gap-2 mb-3">
+            <h2 class="font-semibold text-neutral-900 group-hover:underline underline-offset-2">
+              {project.data.title}
+            </h2>
+            <span class={`text-xs font-mono px-2 py-0.5 rounded shrink-0 ${statusStyle[project.data.status]}`}>
+              {statusLabel[project.data.status]}
+            </span>
+          </div>
+          <p class="text-sm text-neutral-600 leading-relaxed mb-4">{project.data.description}</p>
+          <div class="flex flex-wrap gap-2">
+            {project.data.tags.map((tag: string) => (
+              <span class="text-xs px-2 py-0.5 bg-neutral-100 text-neutral-500 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  )}
+</BaseLayout>
